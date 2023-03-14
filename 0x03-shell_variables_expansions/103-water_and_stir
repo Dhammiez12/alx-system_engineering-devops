@@ -1,0 +1,16 @@
+#!/bin/bash
+
+#Add the two numbers stored in the environment variables WATER and STIR and print the result
+
+#Convert WATER and STIR to base 10
+water_dec="$(echo "ibase=water; $WATER" | bc)"
+stir_dec="$(echo "ibase=stir; $STIR" | bc)"
+
+#Add the two numbers
+sum=$((water_dec + stir_dec))
+
+#Convert sum to base bestchol
+sum_bestchol="$(echo "obase=bestchol; $sum" | bc)"
+
+#Print the result
+echo "The result is $sum_bestchol"
